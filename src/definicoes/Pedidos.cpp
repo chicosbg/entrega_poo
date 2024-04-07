@@ -16,7 +16,7 @@ Veiculo Pedidos::GetVeiculoDeTransporte()
 
 void Pedidos::SetVeiculoDeTransporte(Veiculo veiculoDeTransporte)
 {
-    veiculoDeTransporte = veiculoDeTransporte;
+    this->veiculoDeTransporte = veiculoDeTransporte;
 }
 
 Cliente Pedidos::GetSolicitante()
@@ -26,7 +26,7 @@ Cliente Pedidos::GetSolicitante()
 
 void Pedidos::SetSolicitante(Cliente solicitante)
 {
-    solicitante = solicitante;
+    this->solicitante = solicitante;
 }
 
 string Pedidos::GetLocalDeColeta()
@@ -36,7 +36,7 @@ string Pedidos::GetLocalDeColeta()
 
 void Pedidos::SetLocalDeColeta(string localDeColeta)
 {
-    localDeColeta = localDeColeta;
+    this->localDeColeta = localDeColeta;
 }
 
 string Pedidos::GetLocalDeEntrega()
@@ -46,7 +46,7 @@ string Pedidos::GetLocalDeEntrega()
 
 void Pedidos::SetLocalDeEntrega(string localDeEntrega)
 {
-    localDeEntrega = localDeEntrega;
+    this->localDeEntrega = localDeEntrega;
 }
 
 float Pedidos::GetPesoDaCarga()
@@ -56,5 +56,5 @@ float Pedidos::GetPesoDaCarga()
 
 void Pedidos::SetPesoDaCarga(float pesoDaCarga)
 {
-    pesoDaCarga = pesoDaCarga;
+    this->pesoDaCarga = pesoDaCarga;
 }

@@ -12,9 +12,11 @@ string Cliente::GetNome()
     return this->nome;
 }
 
-void Cliente::SetNome(string nome)
+int Cliente::SetNome(string nome)
 {
-    nome = this->nome;
+    if(nome == "") return 0;
+    this->nome = nome;
+    return 1;
 }
 
 string Cliente::GetCpf()
@@ -24,7 +26,7 @@ string Cliente::GetCpf()
 
 void Cliente::SetCpf(string cpf)
 {
-    cpf = this->cpf;
+    this->cpf = pf;
 }
 
 string Cliente::GetEmail() 
@@ -34,7 +36,7 @@ string Cliente::GetEmail()
 
 void Cliente::SetEmail(string email)
 {
-    email = this->email;
+    this->email = email;
 }
 
 string Cliente::GetEndereco() 
@@ -44,5 +46,5 @@ string Cliente::GetEndereco()
 
 void Cliente::SetEndereco(string endereco)
 {
-    endereco = this->endereco;
+    this->endereco = endereco;
 }
