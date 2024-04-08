@@ -3,6 +3,7 @@
 
 class Caminhonete : public Veiculo
 {
-private:
-    string const tipo = "CAMINHONETE";
+public: 
+    Caminhonete();
+    ~Caminhonete();
 };

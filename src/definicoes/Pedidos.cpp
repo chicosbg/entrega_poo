@@ -43,7 +43,7 @@ int Pedidos::SetSolicitante(Cliente *solicitante)
 
 string Pedidos::GetLocalDeColeta()
 {
-    return localDeColeta;
+    return this->localDeColeta;
 }
 
 int Pedidos::SetLocalDeColeta(string localDeColeta)
@@ -54,7 +54,7 @@ int Pedidos::SetLocalDeColeta(string localDeColeta)
 
 string Pedidos::GetLocalDeEntrega()
 {
-    return localDeEntrega;
+    return this->localDeEntrega;
 }
 
 int Pedidos::SetLocalDeEntrega(string localDeEntrega)
@@ -66,7 +66,7 @@ int Pedidos::SetLocalDeEntrega(string localDeEntrega)
 
 float Pedidos::GetPesoDaCarga()
 {
-    return pesoDaCarga;
+    return this->pesoDaCarga;
 }
 
 int Pedidos::SetPesoDaCarga(float pesoDaCarga)

@@ -11,10 +11,12 @@ private:
     int anoFabricaocao;
     float capacidadeDeCarga;
     bool isAtivo;
-    string tipo;
     string numeroChassi;
     string modelo;
     string localizacao;
+    
+protected:
+    string tipo;
 
 public:
     Veiculo();

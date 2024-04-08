@@ -7,7 +7,7 @@ Veiculo::Veiculo() { }
 
 Veiculo::~Veiculo() { }
 
-string Veiculo::Veiculo::GetTipo()
+string Veiculo::GetTipo()
 {
     return this->tipo;
 }

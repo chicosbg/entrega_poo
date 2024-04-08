@@ -3,6 +3,7 @@
 
 class Carro : public Veiculo
 {
-private:
-    string const tipo = "CARRO";
+    public:
+        Carro();
+        ~Carro();
 };
