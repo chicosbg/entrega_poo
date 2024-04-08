@@ -1,4 +1,5 @@
 #include <iostream>
+#include <regex>
 #include "../headers/Cliente.h"
 
 using namespace std;
@@ -24,9 +25,12 @@ string Cliente::GetCpf()
     return this->cpf;
 }
 
-void Cliente::SetCpf(string cpf)
+int Cliente::SetCpf(string cpf)
 {
-    this->cpf = pf;
+    std::regex cpfRegex("^\\d{3}(\\.?\\d{3}){2}-?\\d{2}$");
+    if(!std::regex_match(cpf, cpfRegex)) return 0;   
+    this->cpf = cpf;
+    return 1;
 }
 
 string Cliente::GetEmail() 
@@ -34,9 +38,11 @@ string Cliente::GetEmail()
     return this->email;
 }
 
-void Cliente::SetEmail(string email)
+int Cliente::SetEmail(string email)
 {
+    if(this->email == "") return 0;
     this->email = email;
+    return 1;
 }
 
 string Cliente::GetEndereco() 
@@ -46,5 +52,8 @@ string Cliente::GetEndereco()
 
 void Cliente::SetEndereco(string endereco)
 {
+    if(this->email == "") return 0;
     this->endereco = endereco;
+    return 1;
+    
 }
