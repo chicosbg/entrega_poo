@@ -12,17 +12,12 @@ string Veiculo::Veiculo::GetTipo()
     return this->tipo;
 }
 
-void Veiculo::SetTipo(string tipo)
-{
-    this->tipo = tipo;
-}
-
 float Veiculo::GetCapacidadeDeCarga()
 {
     return this->capacidadeDeCarga;
 }
 
-void Veiculo::SetCapacidadeDeCarga(float capacidadeDeCarga)
+int Veiculo::SetCapacidadeDeCarga(float capacidadeDeCarga)
 {
     this->capacidadeDeCarga = capacidadeDeCarga;
 }
@@ -32,9 +27,11 @@ int Veiculo::GetAnoFabricaocao()
     return this->anoFabricaocao;
 }
 
-void Veiculo::SetAnoFabricaocao(int anoFabricaocao)
+int Veiculo::SetAnoFabricaocao(int anoFabricaocao)
 {
+    if(anoFabricaocao < 0) return 0;
     this->anoFabricaocao = anoFabricaocao;
+    return 1;
 }
 
 string Veiculo::GetNumeroChassi()
@@ -42,9 +39,13 @@ string Veiculo::GetNumeroChassi()
     return this->numeroChassi;
 }
 
-void Veiculo::SetNumeroChassi(string numeroChassi)
+int Veiculo::SetNumeroChassi(string numeroChassi)
 {
-    this->numeroChassi = numeroChassi;
+    if(numeroChassi.length() == 17) {
+        this->numeroChassi = numeroChassi;
+        return 1;
+    }
+    return 0;
 }
 
 string Veiculo::GetModelo()
@@ -52,9 +53,11 @@ string Veiculo::GetModelo()
     return this->modelo;
 }
 
-void Veiculo::SetModelo(string modelo)
+int Veiculo::SetModelo(string modelo)
 {
+    if(modelo == "") return 0;
     this->modelo = modelo;
+    return 1;
 }
 
 string Veiculo::GetLocalizacao()
@@ -62,15 +65,17 @@ string Veiculo::GetLocalizacao()
     return this->localizacao;
 }
 
-void Veiculo::SetLocalizacao(string localizacao)
+int Veiculo::SetLocalizacao(string localizacao)
 {
+    if(localizacao == "") return 0;
     this->localizacao = localizacao;
+    return 1;
 }
 
 bool Veiculo::GetIsAtivo() {
     return this->isAtivo;
 }
     
-void Veiculo::SetIsAtivo(bool isAtivo) {
+void Veiculo::SetIsAtivo(bool isAtivo = true) {
     this->isAtivo = isAtivo;
 }
