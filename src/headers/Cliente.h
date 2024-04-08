@@ -20,11 +20,11 @@ public:
 
     string GetNome();
 
-    void SetNome(string nome);
+    int SetNome(string nome);
 
     string GetCpf();
 
-    void SetCpf(string cpf);
+    int SetCpf(string cpf);
 
     string GetEmail();
 
