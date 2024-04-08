@@ -22,7 +22,7 @@ public:
 
     Veiculo *buscaVeiculo(string numeroChassi);
 
-    Veiculo *buscaVeiculo(string localizacao);
+    Veiculo *buscaVeiculoByLocalizacao(string localizacao);
 
     list<Veiculo *> *obterVeiculosAtivos();
 };

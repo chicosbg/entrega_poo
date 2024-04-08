@@ -54,7 +54,7 @@ Veiculo *GerenciadorVeiculos::buscaVeiculo(string numeroChassi)
     return NULL;
 }
 
-Veiculo *GerenciadorVeiculos::buscaVeiculo(string localizacao)
+Veiculo *GerenciadorVeiculos::buscaVeiculoByLocalizacao(string localizacao)
 {
     for (Veiculo *v : *this->veiculosAtivos)
         if (v->GetLocalizacao() == localizacao)

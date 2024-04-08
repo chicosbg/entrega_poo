@@ -50,7 +50,7 @@ string Cliente::GetEndereco()
     return this->endereco;
 }
 
-void Cliente::SetEndereco(string endereco)
+int Cliente::SetEndereco(string endereco)
 {
     if(this->email == "") return 0;
     this->endereco = endereco;

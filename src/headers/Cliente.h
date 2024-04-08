@@ -28,11 +28,11 @@ public:
 
     string GetEmail();
 
-    void SetEmail(string email);
+    int SetEmail(string email);
 
     string GetEndereco();
 
-    void SetEndereco(string endereco);
+    int SetEndereco(string endereco);
 };
 
 #endif

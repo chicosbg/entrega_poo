@@ -66,3 +66,11 @@ void Veiculo::SetLocalizacao(string localizacao)
 {
     this->localizacao = localizacao;
 }
+
+bool Veiculo::GetIsAtivo() {
+    return this->isAtivo;
+}
+    
+void Veiculo::SetIsAtivo(bool isAtivo) {
+    this->isAtivo = isAtivo;
+}

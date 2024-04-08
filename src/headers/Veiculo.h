@@ -10,6 +10,7 @@ class Veiculo
 private:
     int anoFabricaocao;
     float capacidadeDeCarga;
+    bool isAtivo;
     string tipo;
     string numeroChassi;
     string modelo;
@@ -43,6 +44,10 @@ public:
     string GetLocalizacao();
 
     void SetLocalizacao(string localizacao);
+
+    bool GetIsAtivo();
+    
+    void SetIsAtivo(bool IsAtivo);
 };
 
 #endif

@@ -1,6 +1,6 @@
 #include <iostream>
-#include "../headers/Cliente.h"
-#include "../headers/Veiculo.h"
+#include "./Cliente.h"
+#include "./Veiculo.h"
 
 #ifndef _PEDIDOS_H_
 #define _PEDIDOS_H_
