@@ -10,8 +10,8 @@ using namespace std;
 class Pedidos
 {
 private:
-    Veiculo veiculoDeTransporte;
-    Cliente solicitante;
+    Veiculo *veiculoDeTransporte;
+    Cliente *solicitante;
     string localDeColeta;
     string localDeEntrega;
     float pesoDaCarga;
@@ -21,25 +21,25 @@ public:
 
     ~Pedidos();
     
-    Veiculo GetVeiculoDeTransporte();
+    Veiculo *GetVeiculoDeTransporte();
 
-    void SetVeiculoDeTransporte(Veiculo veiculoDeTransporte);
+    int SetVeiculoDeTransporte(Veiculo *veiculoDeTransporte);
 
-    Cliente GetSolicitante();
+    Cliente *GetSolicitante();
 
-    void SetSolicitante(Cliente solicitante);
+    int SetSolicitante(Cliente *solicitante);
 
     string GetLocalDeColeta();
 
-    void SetLocalDeColeta(string localDeColeta);
+    int SetLocalDeColeta(string localDeColeta);
 
     string GetLocalDeEntrega();
 
-    void SetLocalDeEntrega(string localDeEntrega);
+    int SetLocalDeEntrega(string localDeEntrega);
 
     float GetPesoDaCarga();
 
-    void SetPesoDaCarga(float pesoDaCarga);
+    int SetPesoDaCarga(float pesoDaCarga);
 };
 
 #endif
