@@ -27,6 +27,24 @@ int GerenciadorVeiculos::adicionarVeiculo(Veiculo *veiculo)
     return 1;
 }
 
+int adicionarVeiculos(string numeroChassi, string modelo, string localizacao, bool isAtivo = false, int anoFabricaocao = 0, float capacidadeDeCarga = 0)
+{
+    Veiculo *veiculo = new Veiculo();
+    if(!isAtivo) return 0;
+    veiculo->setIsAtivo(isAtivo);
+    if(
+        veiculo->setAnoFabricaocao(anoFabricaocao)
+        && veiculo->setCapacidadeDeCarga(capacidadeDeCarga)
+        && veiculo->setLocalizacao(localizacao)
+        && veiculo->setModelo(modelo)
+        && veiculo->setNumeroChassi(numeroChassi)
+    ) {
+        return 1;
+    }
+    delete veiculo;
+    return 0;
+}
+
 int GerenciadorVeiculos::removerVeiculo(Veiculo *veiculo)
 {
     bool veiculoPresente = false;
