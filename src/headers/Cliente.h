@@ -18,21 +18,21 @@ public:
 
     ~Cliente();
 
-    string GetNome();
+    string getNome();
 
-    int SetNome(string nome);
+    int setNome(string nome);
 
-    string GetCpf();
+    string getCpf();
 
-    int SetCpf(string cpf);
+    int setCpf(string cpf);
 
-    string GetEmail();
+    string getEmail();
 
-    int SetEmail(string email);
+    int setEmail(string email);
 
-    string GetEndereco();
+    string getEndereco();
 
-    int SetEndereco(string endereco);
+    int setEndereco(string endereco);
 };
 
 #endif

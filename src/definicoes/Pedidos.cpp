@@ -16,60 +16,60 @@ Pedidos::~Pedidos() {
     delete this->solicitante;
 }
 
-Veiculo *Pedidos::GetVeiculoDeTransporte()
+Veiculo *Pedidos::getVeiculoDeTransporte()
 {
     return this->veiculoDeTransporte;
 }
 
-int Pedidos::SetVeiculoDeTransporte(Veiculo *veiculoDeTransporte)
+int Pedidos::setVeiculoDeTransporte(Veiculo *veiculoDeTransporte)
 {
-    if(!veiculoDeTransporte->GetIsAtivo())
+    if(!veiculoDeTransporte->getIsAtivo())
         return 0;
     this->veiculoDeTransporte = veiculoDeTransporte;
     return 1;
 }
 
-Cliente *Pedidos::GetSolicitante()
+Cliente *Pedidos::getSolicitante()
 {
     return this->solicitante;
 }
 
-int Pedidos::SetSolicitante(Cliente *solicitante)
+int Pedidos::setSolicitante(Cliente *solicitante)
 {
     if(solicitante == NULL) return 0;
     this->solicitante = solicitante;
     return 1;
 }
 
-string Pedidos::GetLocalDeColeta()
+string Pedidos::getLocalDeColeta()
 {
     return this->localDeColeta;
 }
 
-int Pedidos::SetLocalDeColeta(string localDeColeta)
+int Pedidos::setLocalDeColeta(string localDeColeta)
 {   if(localDeColeta == "") return 0;
     this->localDeColeta = localDeColeta;
     return 1;
 }
 
-string Pedidos::GetLocalDeEntrega()
+string Pedidos::getLocalDeEntrega()
 {
     return this->localDeEntrega;
 }
 
-int Pedidos::SetLocalDeEntrega(string localDeEntrega)
+int Pedidos::setLocalDeEntrega(string localDeEntrega)
 {
     if(localDeEntrega == "") return 0;
     this->localDeEntrega = localDeEntrega;
     return 1;
 }
 
-float Pedidos::GetPesoDaCarga()
+float Pedidos::getPesoDaCarga()
 {
     return this->pesoDaCarga;
 }
 
-int Pedidos::SetPesoDaCarga(float pesoDaCarga)
+int Pedidos::setPesoDaCarga(float pesoDaCarga)
 {
     if(pesoDaCarga <= 0) return 0;
     this->pesoDaCarga = pesoDaCarga;

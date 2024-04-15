@@ -21,7 +21,7 @@ list<Veiculo *> *GerenciadorVeiculos::getVeiculosAtivos()
 
 int GerenciadorVeiculos::adicionarVeiculo(Veiculo *veiculo)
 {
-    if (!veiculo->GetIsAtivo())
+    if (!veiculo->getIsAtivo())
         return 0;
     this->veiculosAtivos->push_back(veiculo);
     return 1;
@@ -31,7 +31,7 @@ int GerenciadorVeiculos::removerVeiculo(Veiculo *veiculo)
 {
     bool veiculoPresente = false;
     for (Veiculo *v : *this->veiculosAtivos)
-        if (veiculo->GetNumeroChassi() == veiculo->GetNumeroChassi())
+        if (veiculo->getNumeroChassi() == veiculo->getNumeroChassi())
         {
             veiculoPresente = true;
             break;
@@ -49,7 +49,7 @@ int GerenciadorVeiculos::removerVeiculo(Veiculo *veiculo)
 Veiculo *GerenciadorVeiculos::buscaVeiculo(string numeroChassi)
 {
     for (Veiculo *v : *this->veiculosAtivos)
-        if (v->GetNumeroChassi() == numeroChassi)
+        if (v->getNumeroChassi() == numeroChassi)
             return v;
     return NULL;
 }
@@ -57,7 +57,7 @@ Veiculo *GerenciadorVeiculos::buscaVeiculo(string numeroChassi)
 Veiculo *GerenciadorVeiculos::buscaVeiculoByLocalizacao(string localizacao)
 {
     for (Veiculo *v : *this->veiculosAtivos)
-        if (v->GetLocalizacao() == localizacao)
+        if (v->getLocalizacao() == localizacao)
             return v;
     return NULL;
 }

@@ -23,31 +23,31 @@ public:
     
     ~Veiculo();
 
-    string GetTipo();
+    string getTipo();
 
-    float GetCapacidadeDeCarga();
+    float getCapacidadeDeCarga();
 
-    int SetCapacidadeDeCarga(float capacidadeDeCarga);
+    int setCapacidadeDeCarga(float capacidadeDeCarga);
 
-    int GetAnoFabricaocao();
+    int getAnoFabricaocao();
 
-    int SetAnoFabricaocao(int anoFabricaocao);
+    int setAnoFabricaocao(int anoFabricaocao);
 
-    string GetNumeroChassi();
+    string getNumeroChassi();
 
-    int SetNumeroChassi(string numeroChassi);
+    int setNumeroChassi(string numeroChassi);
 
-    string GetModelo();
+    string getModelo();
 
-    int SetModelo(string modelo);
+    int setModelo(string modelo);
 
-    string GetLocalizacao();
+    string getLocalizacao();
 
-    int SetLocalizacao(string localizacao);
+    int setLocalizacao(string localizacao);
 
-    bool GetIsAtivo();
+    bool getIsAtivo();
     
-    void SetIsAtivo(bool IsAtivo);
+    void setIsAtivo(bool IsAtivo);
 };
 
 #endif

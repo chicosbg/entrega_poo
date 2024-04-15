@@ -8,24 +8,24 @@ Cliente::Cliente() { }
 
 Cliente::~Cliente() { }
 
-string Cliente::GetNome()
+string Cliente::getNome()
 {
     return this->nome;
 }
 
-int Cliente::SetNome(string nome)
+int Cliente::setNome(string nome)
 {
     if(nome == "") return 0;
     this->nome = nome;
     return 1;
 }
 
-string Cliente::GetCpf()
+string Cliente::getCpf()
 {
     return this->cpf;
 }
 
-int Cliente::SetCpf(string cpf)
+int Cliente::setCpf(string cpf)
 {
     std::regex cpfRegex("^\\d{3}(\\.?\\d{3}){2}-?\\d{2}$");
     if(!std::regex_match(cpf, cpfRegex)) return 0;   
@@ -33,24 +33,24 @@ int Cliente::SetCpf(string cpf)
     return 1;
 }
 
-string Cliente::GetEmail() 
+string Cliente::getEmail() 
 {
     return this->email;
 }
 
-int Cliente::SetEmail(string email)
+int Cliente::setEmail(string email)
 {
     if(this->email == "") return 0;
     this->email = email;
     return 1;
 }
 
-string Cliente::GetEndereco() 
+string Cliente::getEndereco() 
 {
     return this->endereco;
 }
 
-int Cliente::SetEndereco(string endereco)
+int Cliente::setEndereco(string endereco)
 {
     if(this->email == "") return 0;
     this->endereco = endereco;

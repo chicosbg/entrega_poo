@@ -21,25 +21,25 @@ public:
 
     ~Pedidos();
     
-    Veiculo *GetVeiculoDeTransporte();
+    Veiculo *getVeiculoDeTransporte();
 
-    int SetVeiculoDeTransporte(Veiculo *veiculoDeTransporte);
+    int setVeiculoDeTransporte(Veiculo *veiculoDeTransporte);
 
-    Cliente *GetSolicitante();
+    Cliente *getSolicitante();
 
-    int SetSolicitante(Cliente *solicitante);
+    int setSolicitante(Cliente *solicitante);
 
-    string GetLocalDeColeta();
+    string getLocalDeColeta();
 
-    int SetLocalDeColeta(string localDeColeta);
+    int setLocalDeColeta(string localDeColeta);
 
-    string GetLocalDeEntrega();
+    string getLocalDeEntrega();
 
-    int SetLocalDeEntrega(string localDeEntrega);
+    int setLocalDeEntrega(string localDeEntrega);
 
-    float GetPesoDaCarga();
+    float getPesoDaCarga();
 
-    int SetPesoDaCarga(float pesoDaCarga);
+    int setPesoDaCarga(float pesoDaCarga);
 };
 
 #endif
