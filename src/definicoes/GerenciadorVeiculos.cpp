@@ -27,7 +27,7 @@ int GerenciadorVeiculos::adicionarVeiculo(Veiculo *veiculo)
     return 1;
 }
 
-int adicionarVeiculos(string numeroChassi, string modelo, string localizacao, bool isAtivo = false, int anoFabricaocao = 0, float capacidadeDeCarga = 0)
+int GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, string localizacao, bool isAtivo = false, int anoFabricaocao = 0, float capacidadeDeCarga = 0)
 {
     Veiculo *veiculo = new Veiculo();
     if(!isAtivo) return 0;
@@ -39,6 +39,7 @@ int adicionarVeiculos(string numeroChassi, string modelo, string localizacao, bo
         && veiculo->setModelo(modelo)
         && veiculo->setNumeroChassi(numeroChassi)
     ) {
+        this->veiculosAtivos->push_back(veiculo);
         return 1;
     }
     delete veiculo;
