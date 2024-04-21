@@ -16,7 +16,9 @@ GerenciadorPedido::~GerenciadorPedido() {
 void GerenciadorPedido::defineVeiculosTransport(list<Pedido*> *listaPedidos) {
     int capacidadeTotalDoVeiculo, contagemAtual; 
     int *indicesAdicionados = new int[listaPedidos->size()]; 
+    
     list<Veiculo *> *veiculosAtivos = this->veiculos->getVeiculosAtivos();
+
     for(Veiculo *veiculo: *veiculosAtivos) {
         capacidadeTotalDoVeiculo = veiculo->getCapacidadeDeCarga();  
         contagemAtual = 0;

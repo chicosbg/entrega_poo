@@ -15,7 +15,7 @@ class GerenciadorPedido {
         ~GerenciadorPedido();
 
         void defineVeiculosTransport(list<Pedido*> *listaPedidos);
-        bool GerenciadorPedido::defineVeiculosTransport(Pedido *pedido);
+        bool defineVeiculosTransport(Pedido *pedido);
 };
 
 #endif
