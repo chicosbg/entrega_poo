@@ -26,15 +26,16 @@ double Coordenada::calculaDistancia(Coordenada *coordenadaB) {
     return 0.0;
 }
 
-bool Coordenada::operator==(Coordenada *coordenada) {
-    return coordenada->getLatitude() == this->latitude && coordenada->getLongitude() == longitude;
+bool Coordenada::operator==(Coordenada &coordenada) {
+    return coordenada.getLatitude() == this->latitude && coordenada.getLongitude() == longitude;
 }
 
-iostream operator<<(iostream &os, Coordenada &coordenada) {
+iostream &operator<<(iostream &os, Coordenada &coordenada) {
     os <<"latitude: " 
-    <<  coordenada.getLatitude()
-    << endl
-    << "Longitude: "
-    << coordenada.getLongitude()
-    << endl;
+        <<  coordenada.getLatitude()
+        << endl
+        << "Longitude: "
+        << coordenada.getLongitude()
+        << endl;
+    return os;
 }

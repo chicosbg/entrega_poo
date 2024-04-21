@@ -1,4 +1,5 @@
 #include <iostream>
+#include "./Coordenada.h"
 
 #ifndef _VEICULO_H_
 #define _VEICULO_H_
@@ -13,7 +14,7 @@ private:
     bool isAtivo;
     string numeroChassi;
     string modelo;
-    string localizacao;
+    Coordenada *localizacao;
     
 protected:
     string tipo;
@@ -41,13 +42,15 @@ public:
 
     void setModelo(string modelo);
 
-    string getLocalizacao();
+    Coordenada *getLocalizacao();
 
-    void setLocalizacao(string localizacao);
+    void setLocalizacao(Coordenada *localizacao);
 
     bool getIsAtivo();
     
     void setIsAtivo(bool IsAtivo);
+
+    friend iostream &operator<<(iostream &os, Veiculo &veiculo);
 };
 
 #endif

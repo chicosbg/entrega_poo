@@ -18,7 +18,7 @@ public:
     double getLongitude();
     void setLogitude(double longitude);
     double calculaDistancia(Coordenada *coordenadaB);
-    bool operator==(Coordenada * coordenada);
-    friend iostream operator<<(iostream &os, Coordenada &coordenada);
+    bool operator==(Coordenada &coordenada);
+    friend iostream &operator<<(iostream &os, Coordenada &coordenada);
 };
 #endif

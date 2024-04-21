@@ -30,7 +30,8 @@ int GerenciadorVeiculos::adicionarVeiculo(Veiculo *veiculo)
     return 1;
 }
 
-bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, string localizacao, int isAtivo, int anoFabricacao, float capacidadeDeCarga)
+
+bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, Coordenada *localizacao, int isAtivo, int anoFabricacao, float capacidadeDeCarga)
 {
     Veiculo *veiculo = new Veiculo();
     try
@@ -44,63 +45,75 @@ bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, 
     }
     catch(const exception& e)
     {
+        delete veiculo;
         cerr << e.what() << '\n';
+        return false;
     }
     
     this->veiculosAtivos->push_back(veiculo);
-    
-    delete veiculo;
-    return false;
+    return true;
 }
 
-bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, string localizacao) {
-    Veiculo *novoVeiculo = new Veiculo();
+bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, Coordenada *localizacao) {
+    Veiculo *veiculo = new Veiculo();
     try
     {
-        novoVeiculo->setNumeroChassi(numeroChassi);
-        novoVeiculo->setModelo(modelo);
-        novoVeiculo->setLocalizacao(localizacao);
-        return true;    
+        veiculo->setIsAtivo(true);
+        veiculo->setLocalizacao(localizacao);
+        veiculo->setModelo(modelo);
+        veiculo->setNumeroChassi(numeroChassi);
     }
     catch(const exception& e)
     {
-        delete novoVeiculo;
+        delete veiculo;
         cerr << e.what() << '\n';
         return false;
-    } 
+    }
+    
+    this->veiculosAtivos->push_back(veiculo);
+    return true;
 }
 
-bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, string localizacao, int anoFabricaocao) {
-    Veiculo *novoVeiculo = new Veiculo();
-    try {
-        novoVeiculo->setNumeroChassi(numeroChassi);
-        novoVeiculo->setModelo(modelo);
-        novoVeiculo->setLocalizacao(localizacao);
-        novoVeiculo->setIsAtivo(true);
-        novoVeiculo->setAnoFabricaocao(anoFabricaocao);
-        return true;
-    } catch(const exception& e) {
-        delete novoVeiculo;
-        cerr << e.what() << endl;
+bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, Coordenada *localizacao, int anoFabricaocao) {
+    Veiculo *veiculo = new Veiculo();
+    try
+    {
+        veiculo->setIsAtivo(true);
+        veiculo->setLocalizacao(localizacao);
+        veiculo->setModelo(modelo);
+        veiculo->setNumeroChassi(numeroChassi);
+    }
+    catch(const exception& e)
+    {
+        delete veiculo;
+        cerr << e.what() << '\n';
         return false;
     }
+    
+    this->veiculosAtivos->push_back(veiculo);
+    return true;
 }
 
-bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, string localizacao, float capacidadeDeCarga) {
+bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, Coordenada *localizacao, float capacidadeDeCarga) {
     Veiculo *novoVeiculo = new Veiculo();
-    try {
-        novoVeiculo->setNumeroChassi(numeroChassi);
-        novoVeiculo->setModelo(modelo);
-        novoVeiculo->setLocalizacao(localizacao);
-        novoVeiculo->setIsAtivo(true);
-        novoVeiculo->setCapacidadeDeCarga(capacidadeDeCarga);
-        return true;
-    } catch(const exception& e) {
-        delete novoVeiculo;
-        cerr << e.what() << endl;
+    Veiculo *veiculo = new Veiculo();
+    try
+    {
+        veiculo->setIsAtivo(true);
+        veiculo->setCapacidadeDeCarga(capacidadeDeCarga);
+        veiculo->setLocalizacao(localizacao);
+        veiculo->setModelo(modelo);
+        veiculo->setNumeroChassi(numeroChassi);
+    }
+    catch(const exception& e)
+    {
+        delete veiculo;
+        cerr << e.what() << '\n';
         return false;
     }
-    return false;
+    
+    this->veiculosAtivos->push_back(veiculo);
+    return true;
 }
 
 int GerenciadorVeiculos::removerVeiculo(Veiculo *veiculo)
@@ -130,10 +143,10 @@ Veiculo *GerenciadorVeiculos::buscaVeiculo(string numeroChassi)
     return NULL;
 }
 
-Veiculo *GerenciadorVeiculos::buscaVeiculoByLocalizacao(string localizacao)
+Veiculo *GerenciadorVeiculos::buscaVeiculoByLocalizacao(Coordenada *localizacao)
 {
     for (Veiculo *v : *this->veiculosAtivos)
-        if (v->getLocalizacao() == localizacao)
+        if (localizacao == v->getLocalizacao())
             return v;
     return NULL;
 }

@@ -100,8 +100,8 @@ iostream &operator<<(iostream &os, Pedido &pedidos)
        << endl
        << pedidos.getVeiculoDeTransporte()
        << "PESO CARGA: "
-       << pedidos.getPesoDaCarga();
-       << endl
+       << pedidos.getPesoDaCarga()
+       << endl;
     return os;
 }
 

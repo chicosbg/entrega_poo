@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../headers/Veiculo.h"
+#include "../headers/Coordenada.h"
 
 using namespace std;
 
@@ -58,14 +59,14 @@ void Veiculo::setModelo(string modelo)
     this->modelo = modelo;
 }
 
-string Veiculo::getLocalizacao()
+Coordenada *Veiculo::getLocalizacao()
 {
     return this->localizacao;
 }
 
-void Veiculo::setLocalizacao(string localizacao)
+void Veiculo::setLocalizacao(Coordenada *localizacao)
 {
-    if(localizacao.empty()) throw invalid_argument("Nao eh permitido a localizacao vazia.");
+    if(localizacao == NULL) throw invalid_argument("Nao eh permitido a localizacao vazia.");
     this->localizacao = localizacao;
 
 }
@@ -76,4 +77,31 @@ bool Veiculo::getIsAtivo() {
     
 void Veiculo::setIsAtivo(bool isAtivo = true) {
     this->isAtivo = isAtivo;
+}
+
+iostream &operator<<(iostream &os, Veiculo &veiculo) {
+    os << veiculo.getTipo() << ":"
+        << endl
+        << "NUMERO DO CHASSI: "  
+        << veiculo.getNumeroChassi()
+        << endl
+        << "MODELO: "  
+        << veiculo.getModelo()
+        << endl
+        << "CAPACIDADE DE CARGA: "  
+        << veiculo.getCapacidadeDeCarga()
+        << endl
+        << "ANO DE FABRICACAO: "
+        <<  veiculo.getAnoFabricaocao()
+        << endl
+        << "ESTA ATIVO: "
+        << veiculo.getIsAtivo()
+        << endl
+        << "MODELO: "  
+        << veiculo.getModelo()
+        << endl
+        << "LOCALIZACAO:"
+        << veiculo.getLocalizacao();
+
+    return os;
 }
