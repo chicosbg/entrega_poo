@@ -16,6 +16,8 @@ Pedido::~Pedido()
 {
     delete this->veiculoDeTransporte;
     delete this->solicitante;
+    delete this->localDeColeta;
+    delete this->localDeEntrega;
 }
 
 int Pedido::getNumeroPedido() {
@@ -56,9 +58,9 @@ string Pedido::getLocalDeColeta()
     return this->localDeColeta;
 }
 
-void Pedido::setLocalDeColeta(string localDeColeta)
+void Pedido::setLocalDeColeta(Coordenada *localDeColeta)
 {
-    if (localDeColeta.empty())
+    if (localDeColeta == NULL)
         throw invalid_argument("Eh obrigatorio informar um local de coleta.");
     this->localDeColeta = localDeColeta;
 }
@@ -68,9 +70,9 @@ string Pedido::getLocalDeEntrega()
     return this->localDeEntrega;
 }
 
-void Pedido::setLocalDeEntrega(string localDeEntrega)
+void Pedido::setLocalDeEntrega(Coordenada *localDeEntrega)
 {
-    if (localDeEntrega.empty())
+    if (localDeEntrega == NULL)
         throw invalid_argument("Eh obrigatorio informar um local de entrega.");
     this->localDeEntrega = localDeEntrega;
 }

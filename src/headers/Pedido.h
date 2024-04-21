@@ -1,7 +1,7 @@
 #include <iostream>
 #include "./Cliente.h"
 #include "./Veiculo.h"
-
+#include "./Coordenada.h"
 #ifndef _PEDIDOS_H_
 #define _PEDIDOS_H_
 
@@ -13,8 +13,8 @@ private:
     int numeroPedido;
     Veiculo *veiculoDeTransporte;
     Cliente *solicitante;
-    string localDeColeta;
-    string localDeEntrega;
+    Coordenada *localDeColeta;
+    Coordenada *localDeEntrega;
     float pesoDaCarga;
 
 public:
@@ -36,11 +36,11 @@ public:
 
     string getLocalDeColeta();
 
-    void setLocalDeColeta(string localDeColeta);
+    void setLocalDeColeta(Coordenada *localDeColeta);
 
     string getLocalDeEntrega();
 
-    void setLocalDeEntrega(string localDeEntrega);
+    void setLocalDeEntrega(Coordenada *localDeEntrega);
 
     float getPesoDaCarga();
 
