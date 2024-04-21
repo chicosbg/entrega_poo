@@ -53,7 +53,7 @@ void Pedido::setSolicitante(Cliente *solicitante)
     this->solicitante = solicitante;
 }
 
-string Pedido::getLocalDeColeta()
+Coordenada *Pedido::getLocalDeColeta()
 {
     return this->localDeColeta;
 }
@@ -65,7 +65,7 @@ void Pedido::setLocalDeColeta(Coordenada *localDeColeta)
     this->localDeColeta = localDeColeta;
 }
 
-string Pedido::getLocalDeEntrega()
+Coordenada *Pedido::getLocalDeEntrega()
 {
     return this->localDeEntrega;
 }

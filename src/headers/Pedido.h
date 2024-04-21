@@ -34,11 +34,11 @@ public:
 
     void setSolicitante(Cliente *solicitante);
 
-    string getLocalDeColeta();
+    Coordenada *getLocalDeColeta();
 
     void setLocalDeColeta(Coordenada *localDeColeta);
 
-    string getLocalDeEntrega();
+    Coordenada *getLocalDeEntrega();
 
     void setLocalDeEntrega(Coordenada *localDeEntrega);
 

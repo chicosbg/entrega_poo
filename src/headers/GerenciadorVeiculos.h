@@ -1,7 +1,7 @@
 #include <iostream>
 #include <list>
 #include "./Veiculo.h"
-#include "../headers/Coordenada.h"
+#include "./Coordenada.h"
 #ifndef _GERENCIADORVEICULO_H_
 #define _GERENCIADORVEICULO_H_
 
