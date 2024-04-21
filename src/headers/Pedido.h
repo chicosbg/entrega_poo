@@ -7,9 +7,10 @@
 
 using namespace std;
 
-class Pedidos
+class Pedido
 {
 private:
+    int numeroPedido;
     Veiculo *veiculoDeTransporte;
     Cliente *solicitante;
     string localDeColeta;
@@ -17,10 +18,14 @@ private:
     float pesoDaCarga;
 
 public:
-    Pedidos();
+    Pedido();
 
-    ~Pedidos();
+    ~Pedido();
     
+    int getNumeroPedido();
+
+    void setNumeroPedido(int numeroPedido);
+
     Veiculo *getVeiculoDeTransporte();
 
     void setVeiculoDeTransporte(Veiculo *veiculoDeTransporte);
@@ -40,6 +45,10 @@ public:
     float getPesoDaCarga();
 
     void setPesoDaCarga(float pesoDaCarga);
+
+    friend iostream &operator<<(iostream &os, Pedido &pedidos);
+
+    bool operator==(Pedido &pedido);
 };
 
 #endif
