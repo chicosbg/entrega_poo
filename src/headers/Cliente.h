@@ -35,6 +35,10 @@ public:
     string getEndereco();
 
     void setEndereco(string endereco);
+
+    friend iostream &operator<<(iostream os, Cliente &cliente);
+
+    bool operator==(Cliente &cliente);
 };
 
 #endif

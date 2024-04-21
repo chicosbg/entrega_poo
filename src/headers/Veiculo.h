@@ -51,6 +51,8 @@ public:
     void setIsAtivo(bool IsAtivo);
 
     friend iostream &operator<<(iostream &os, Veiculo &veiculo);
+    
+    bool operator==(Veiculo &veiculo);
 };
 
 #endif

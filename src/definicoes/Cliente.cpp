@@ -60,3 +60,23 @@ void Cliente::setEndereco(string endereco)
     if(this->endereco.empty()) throw invalid_argument("Nao eh permitido endereco vazio.");
     this->endereco = endereco;
 }
+
+iostream &operator<<(iostream &os, Cliente &cliente) {
+    os << "Nome: "
+    << cliente.getNome()
+    << endl
+    << "CPF: "
+    << cliente.getCpf()
+    << endl
+    << "EMAIL: "
+    << cliente.getEmail()
+    << endl
+    << "ENDERECO: "
+    << cliente.getEndereco()
+    << endl;
+    return os;
+}
+    
+bool Cliente::operator==(Cliente &cliente) {
+    return cliente.getCpf() == this->cpf;
+}

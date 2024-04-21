@@ -105,3 +105,7 @@ iostream &operator<<(iostream &os, Veiculo &veiculo) {
 
     return os;
 }
+
+bool Veiculo::operator==(Veiculo &veiculo) {
+    return veiculo.getNumeroChassi() == this->numeroChassi;
+}
