@@ -13,11 +13,11 @@ int main(void)
     GerenciadorVeiculos *gerenciador = new GerenciadorVeiculos();
     char teclasaida;
 
-    caminhao->SetNumeroChassi("abcdefghijklsdpow");
+    caminhao->setNumeroChassi("abcdefghijklsdpow");
 
-    caminhao->SetIsAtivo(true);
+    caminhao->setIsAtivo(true);
 
-    cout << caminhao->GetTipo() << endl;
+    cout << caminhao->getTipo() << endl;
 
     gerenciador->adicionarVeiculo(caminhao);
 
@@ -25,23 +25,8 @@ int main(void)
 
     for (Veiculo *veiculo : *ativos)
     {
-        cout << veiculo->GetNumeroChassi() << endl;
+        cout << veiculo->getNumeroChassi() << endl;
     }
-
-    cout << caminhao->GetTipo() << endl;
-    cout << "\033[41m"
-         << "CLIENTE"
-         << "\033[0m" << endl;
-
-    if ((c->SetNome("paulo que tranportadora")) == 1)
-        cout << "Nome: " << c->GetNome() << endl;
-    else
-        cout << "Nao foi possivel definir um nome do cliente" << endl;
-
-    if ((c->SetCpf("123.456.789-88") == 1 || c->SetCpf("12345678988")) == 1)
-        cout << "cpf: " << c->GetCpf() << endl;
-    else
-        cout << "Nao foi possivel definir um cpf para o cliente" << endl;
 
     cin >> teclasaida;
 
