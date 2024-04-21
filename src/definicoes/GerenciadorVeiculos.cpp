@@ -12,6 +12,9 @@ GerenciadorVeiculos::GerenciadorVeiculos()
 
 GerenciadorVeiculos::~GerenciadorVeiculos()
 {
+    for(Veiculo *veiculo: *this->veiculosAtivos) {
+        delete veiculo;
+    }
     delete this->veiculosAtivos;
 };
 list<Veiculo *> *GerenciadorVeiculos::getVeiculosAtivos()
