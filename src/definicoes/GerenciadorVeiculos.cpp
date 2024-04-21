@@ -50,7 +50,7 @@ bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, 
     this->veiculosAtivos->push_back(veiculo);
     
     delete veiculo;
-    return 0;
+    return false;
 }
 
 bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, string localizacao) {

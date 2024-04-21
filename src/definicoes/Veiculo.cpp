@@ -17,8 +17,9 @@ float Veiculo::getCapacidadeDeCarga()
     return this->capacidadeDeCarga;
 }
 
-int Veiculo::setCapacidadeDeCarga(float capacidadeDeCarga)
+void Veiculo::setCapacidadeDeCarga(float capacidadeDeCarga)
 {
+    if(capacidadeDeCarga < 0) throw invalid_argument("Nao eh permitido capacidade de carga negativa.");
     this->capacidadeDeCarga = capacidadeDeCarga;
 }
 
@@ -27,11 +28,10 @@ int Veiculo::getAnoFabricaocao()
     return this->anoFabricaocao;
 }
 
-int Veiculo::setAnoFabricaocao(int anoFabricaocao)
+void Veiculo::setAnoFabricaocao(int anoFabricaocao)
 {
-    if(anoFabricaocao < 0) return 0;
+    if(anoFabricaocao < 0) throw invalid_argument("Nao eh permitido ano de fabricacao negativo.");
     this->anoFabricaocao = anoFabricaocao;
-    return 1;
 }
 
 string Veiculo::getNumeroChassi()
@@ -39,13 +39,12 @@ string Veiculo::getNumeroChassi()
     return this->numeroChassi;
 }
 
-int Veiculo::setNumeroChassi(string numeroChassi)
+void Veiculo::setNumeroChassi(string numeroChassi)
 {
     if(numeroChassi.length() == 17) {
         this->numeroChassi = numeroChassi;
-        return 1;
     }
-    return 0;
+    throw invalid_argument("Numero invalido de caracteres");
 }
 
 string Veiculo::getModelo()
@@ -53,11 +52,10 @@ string Veiculo::getModelo()
     return this->modelo;
 }
 
-int Veiculo::setModelo(string modelo)
+void Veiculo::setModelo(string modelo)
 {
-    if(modelo == "") return 0;
+    if(modelo.empty()) throw invalid_argument("Nao eh permitido o modelo vazio.");
     this->modelo = modelo;
-    return 1;
 }
 
 string Veiculo::getLocalizacao()
@@ -65,11 +63,11 @@ string Veiculo::getLocalizacao()
     return this->localizacao;
 }
 
-int Veiculo::setLocalizacao(string localizacao)
+void Veiculo::setLocalizacao(string localizacao)
 {
-    if(localizacao == "") return 0;
+    if(localizacao.empty()) throw invalid_argument("Nao eh permitido a localizacao vazia.");
     this->localizacao = localizacao;
-    return 1;
+
 }
 
 bool Veiculo::getIsAtivo() {

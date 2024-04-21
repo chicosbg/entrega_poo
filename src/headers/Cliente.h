@@ -16,23 +16,25 @@ private:
 public:
     Cliente();
 
+    Cliente(string nome, string cpf, string email, string endereco);
+
     ~Cliente();
 
     string getNome();
 
-    int setNome(string nome);
+    void setNome(string nome);
 
     string getCpf();
 
-    int setCpf(string cpf);
+    void setCpf(string cpf);
 
     string getEmail();
 
-    int setEmail(string email);
+    void setEmail(string email);
 
     string getEndereco();
 
-    int setEndereco(string endereco);
+    void setEndereco(string endereco);
 };
 
 #endif

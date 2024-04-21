@@ -23,23 +23,23 @@ public:
     
     Veiculo *getVeiculoDeTransporte();
 
-    int setVeiculoDeTransporte(Veiculo *veiculoDeTransporte);
+    void setVeiculoDeTransporte(Veiculo *veiculoDeTransporte);
 
     Cliente *getSolicitante();
 
-    int setSolicitante(Cliente *solicitante);
+    void setSolicitante(Cliente *solicitante);
 
     string getLocalDeColeta();
 
-    int setLocalDeColeta(string localDeColeta);
+    void setLocalDeColeta(string localDeColeta);
 
     string getLocalDeEntrega();
 
-    int setLocalDeEntrega(string localDeEntrega);
+    void setLocalDeEntrega(string localDeEntrega);
 
     float getPesoDaCarga();
 
-    int setPesoDaCarga(float pesoDaCarga);
+    void setPesoDaCarga(float pesoDaCarga);
 };
 
 #endif

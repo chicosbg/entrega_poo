@@ -27,23 +27,23 @@ public:
 
     float getCapacidadeDeCarga();
 
-    int setCapacidadeDeCarga(float capacidadeDeCarga);
+    void setCapacidadeDeCarga(float capacidadeDeCarga);
 
     int getAnoFabricaocao();
 
-    int setAnoFabricaocao(int anoFabricaocao);
+    void setAnoFabricaocao(int anoFabricaocao);
 
     string getNumeroChassi();
 
-    int setNumeroChassi(string numeroChassi);
+    void setNumeroChassi(string numeroChassi);
 
     string getModelo();
 
-    int setModelo(string modelo);
+    void setModelo(string modelo);
 
     string getLocalizacao();
 
-    int setLocalizacao(string localizacao);
+    void setLocalizacao(string localizacao);
 
     bool getIsAtivo();
     

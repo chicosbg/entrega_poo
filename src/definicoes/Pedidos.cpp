@@ -9,6 +9,7 @@ Pedidos::Pedidos()
 {
     this->veiculoDeTransporte = new Veiculo();
     this->solicitante = new Cliente();
+    this->pesoDaCarga = 0.0;
 }
 
 Pedidos::~Pedidos() {
@@ -21,12 +22,11 @@ Veiculo *Pedidos::getVeiculoDeTransporte()
     return this->veiculoDeTransporte;
 }
 
-int Pedidos::setVeiculoDeTransporte(Veiculo *veiculoDeTransporte)
+void Pedidos::setVeiculoDeTransporte(Veiculo *veiculoDeTransporte)
 {
     if(!veiculoDeTransporte->getIsAtivo())
-        return 0;
+        throw invalid_argument("Nao sao permitido veiculos nao ativos.");
     this->veiculoDeTransporte = veiculoDeTransporte;
-    return 1;
 }
 
 Cliente *Pedidos::getSolicitante()
@@ -34,11 +34,10 @@ Cliente *Pedidos::getSolicitante()
     return this->solicitante;
 }
 
-int Pedidos::setSolicitante(Cliente *solicitante)
+void Pedidos::setSolicitante(Cliente *solicitante)
 {
-    if(solicitante == NULL) return 0;
+    if(solicitante == NULL) throw invalid_argument("Eh obrigatorio passar um solicitante.");
     this->solicitante = solicitante;
-    return 1;
 }
 
 string Pedidos::getLocalDeColeta()
@@ -46,10 +45,9 @@ string Pedidos::getLocalDeColeta()
     return this->localDeColeta;
 }
 
-int Pedidos::setLocalDeColeta(string localDeColeta)
-{   if(localDeColeta == "") return 0;
+void Pedidos::setLocalDeColeta(string localDeColeta)
+{   if(localDeColeta.empty()) throw invalid_argument("Eh obrigatorio informar um local de coleta.");
     this->localDeColeta = localDeColeta;
-    return 1;
 }
 
 string Pedidos::getLocalDeEntrega()
@@ -57,11 +55,10 @@ string Pedidos::getLocalDeEntrega()
     return this->localDeEntrega;
 }
 
-int Pedidos::setLocalDeEntrega(string localDeEntrega)
+void Pedidos::setLocalDeEntrega(string localDeEntrega)
 {
-    if(localDeEntrega == "") return 0;
+    if(localDeEntrega.empty()) throw invalid_argument("Eh obrigatorio informar um local de entrega.");
     this->localDeEntrega = localDeEntrega;
-    return 1;
 }
 
 float Pedidos::getPesoDaCarga()
@@ -69,9 +66,8 @@ float Pedidos::getPesoDaCarga()
     return this->pesoDaCarga;
 }
 
-int Pedidos::setPesoDaCarga(float pesoDaCarga)
+void Pedidos::setPesoDaCarga(float pesoDaCarga)
 {
-    if(pesoDaCarga <= 0) return 0;
+    if(pesoDaCarga <= 0) throw invalid_argument("peso de carga invalido.");
     this->pesoDaCarga = pesoDaCarga;
-    return 1;
 }
