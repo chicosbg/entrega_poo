@@ -18,7 +18,15 @@ public:
 
     int adicionarVeiculo(Veiculo *veiculo);
 
-    int adicionarVeiculos(string numeroChassi, string modelo, string localizacao, bool isAtivo = false, int anoFabricaocao = 0, float capacidadeDeCarga = 0);
+    bool adicionarVeiculos(string numeroChassi, string modelo, string localizacao);
+
+    bool adicionarVeiculos(string numeroChassi, string modelo, string localizacao, bool isAtivo);
+
+    bool adicionarVeiculos(string numeroChassi, string modelo, string localizacao, int anoFabricaocao);
+
+    bool adicionarVeiculos(string numeroChassi, string modelo, string localizacao, float capacidadeDeCarga);
+
+    bool adicionarVeiculos(string numeroChassi, string modelo, string localizacao, int isAtivo, int anoFabricacao, float capacidadeDeCarga);
 
     int removerVeiculo(Veiculo *veiculo);
 

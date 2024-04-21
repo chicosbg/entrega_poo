@@ -30,23 +30,77 @@ int GerenciadorVeiculos::adicionarVeiculo(Veiculo *veiculo)
     return 1;
 }
 
-int GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, string localizacao, bool isAtivo = false, int anoFabricaocao = 0, float capacidadeDeCarga = 0)
+bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, string localizacao, int isAtivo, int anoFabricacao, float capacidadeDeCarga)
 {
     Veiculo *veiculo = new Veiculo();
-    if(!isAtivo) return 0;
-    veiculo->setIsAtivo(isAtivo);
-    if(
-        veiculo->setAnoFabricaocao(anoFabricaocao)
-        && veiculo->setCapacidadeDeCarga(capacidadeDeCarga)
-        && veiculo->setLocalizacao(localizacao)
-        && veiculo->setModelo(modelo)
-        && veiculo->setNumeroChassi(numeroChassi)
-    ) {
-        this->veiculosAtivos->push_back(veiculo);
-        return 1;
+    try
+    {
+        veiculo->setIsAtivo(isAtivo);
+        veiculo->setAnoFabricaocao(anoFabricacao);
+        veiculo->setCapacidadeDeCarga(capacidadeDeCarga);
+        veiculo->setLocalizacao(localizacao);
+        veiculo->setModelo(modelo);
+        veiculo->setNumeroChassi(numeroChassi);
     }
+    catch(const exception& e)
+    {
+        cerr << e.what() << '\n';
+    }
+    
+    this->veiculosAtivos->push_back(veiculo);
+    
     delete veiculo;
     return 0;
+}
+
+bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, string localizacao) {
+    Veiculo *novoVeiculo = new Veiculo();
+    try
+    {
+        novoVeiculo->setNumeroChassi(numeroChassi);
+        novoVeiculo->setModelo(modelo);
+        novoVeiculo->setLocalizacao(localizacao);
+        return true;    
+    }
+    catch(const exception& e)
+    {
+        delete novoVeiculo;
+        cerr << e.what() << '\n';
+        return false;
+    } 
+}
+
+bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, string localizacao, int anoFabricaocao) {
+    Veiculo *novoVeiculo = new Veiculo();
+    try {
+        novoVeiculo->setNumeroChassi(numeroChassi);
+        novoVeiculo->setModelo(modelo);
+        novoVeiculo->setLocalizacao(localizacao);
+        novoVeiculo->setIsAtivo(true);
+        novoVeiculo->setAnoFabricaocao(anoFabricaocao);
+        return true;
+    } catch(const exception& e) {
+        delete novoVeiculo;
+        cerr << e.what() << endl;
+        return false;
+    }
+}
+
+bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, string localizacao, float capacidadeDeCarga) {
+    Veiculo *novoVeiculo = new Veiculo();
+    try {
+        novoVeiculo->setNumeroChassi(numeroChassi);
+        novoVeiculo->setModelo(modelo);
+        novoVeiculo->setLocalizacao(localizacao);
+        novoVeiculo->setIsAtivo(true);
+        novoVeiculo->setCapacidadeDeCarga(capacidadeDeCarga);
+        return true;
+    } catch(const exception& e) {
+        delete novoVeiculo;
+        cerr << e.what() << endl;
+        return false;
+    }
+    return false;
 }
 
 int GerenciadorVeiculos::removerVeiculo(Veiculo *veiculo)
