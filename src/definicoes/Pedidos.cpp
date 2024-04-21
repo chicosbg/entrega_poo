@@ -95,11 +95,13 @@ iostream &operator<<(iostream &os, Pedido &pedidos)
        << "LOCAL DE COLETA:"
        << pedidos.getLocalDeColeta()
        << pedidos.getLocalDeEntrega()
+       << endl
        << "VEICULO DE TRANSPORTE:" 
        << endl
        << pedidos.getVeiculoDeTransporte()
        << "PESO CARGA: "
        << pedidos.getPesoDaCarga();
+       << endl
     return os;
 }
 
