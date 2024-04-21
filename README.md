@@ -45,7 +45,7 @@ O tratamento de exceções ocorre dentro da classe `GerenciadorVeiculo`, porque 
 
 ## Fluxo de Desenvolvimento da Equipe (no caso so eu)
 
-### branchs
+### branches
 
 + main: Codigo em "produção" (o deploy fica so na imaginação msm)
 + develop: codigo de desenvolvimento (a ideia é dar merge de uma branch diferente nessa, antes de levar ela para main)
