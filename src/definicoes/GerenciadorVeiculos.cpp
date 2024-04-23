@@ -12,6 +12,9 @@ GerenciadorVeiculos::GerenciadorVeiculos()
 
 GerenciadorVeiculos::~GerenciadorVeiculos()
 {
+    for(Veiculo *veiculo: *this->veiculosAtivos) {
+        delete veiculo;
+    }
     delete this->veiculosAtivos;
 };
 list<Veiculo *> *GerenciadorVeiculos::getVeiculosAtivos()
@@ -21,17 +24,103 @@ list<Veiculo *> *GerenciadorVeiculos::getVeiculosAtivos()
 
 int GerenciadorVeiculos::adicionarVeiculo(Veiculo *veiculo)
 {
-    if (!veiculo->GetIsAtivo())
+    if (!veiculo->getIsAtivo())
         return 0;
     this->veiculosAtivos->push_back(veiculo);
     return 1;
+}
+
+
+bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, Coordenada *localizacao, int isAtivo, int anoFabricacao, float capacidadeDeCarga)
+{
+    Veiculo *veiculo = new Veiculo();
+    try
+    {
+        veiculo->setIsAtivo(isAtivo);
+        veiculo->setAnoFabricaocao(anoFabricacao);
+        veiculo->setCapacidadeDeCarga(capacidadeDeCarga);
+        veiculo->setLocalizacao(localizacao);
+        veiculo->setModelo(modelo);
+        veiculo->setNumeroChassi(numeroChassi);
+    }
+    catch(const exception& e)
+    {
+        delete veiculo;
+        cerr << e.what() << '\n';
+        return false;
+    }
+    
+    this->veiculosAtivos->push_back(veiculo);
+    return true;
+}
+
+bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, Coordenada *localizacao) {
+    Veiculo *veiculo = new Veiculo();
+    try
+    {
+        veiculo->setIsAtivo(true);
+        veiculo->setLocalizacao(localizacao);
+        veiculo->setModelo(modelo);
+        veiculo->setNumeroChassi(numeroChassi);
+    }
+    catch(const exception& e)
+    {
+        delete veiculo;
+        cerr << e.what() << '\n';
+        return false;
+    }
+    
+    this->veiculosAtivos->push_back(veiculo);
+    return true;
+}
+
+bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, Coordenada *localizacao, int anoFabricaocao) {
+    Veiculo *veiculo = new Veiculo();
+    try
+    {
+        veiculo->setIsAtivo(true);
+        veiculo->setLocalizacao(localizacao);
+        veiculo->setModelo(modelo);
+        veiculo->setNumeroChassi(numeroChassi);
+    }
+    catch(const exception& e)
+    {
+        delete veiculo;
+        cerr << e.what() << '\n';
+        return false;
+    }
+    
+    this->veiculosAtivos->push_back(veiculo);
+    return true;
+}
+
+bool GerenciadorVeiculos::adicionarVeiculos(string numeroChassi, string modelo, Coordenada *localizacao, float capacidadeDeCarga) {
+    Veiculo *novoVeiculo = new Veiculo();
+    Veiculo *veiculo = new Veiculo();
+    try
+    {
+        veiculo->setIsAtivo(true);
+        veiculo->setCapacidadeDeCarga(capacidadeDeCarga);
+        veiculo->setLocalizacao(localizacao);
+        veiculo->setModelo(modelo);
+        veiculo->setNumeroChassi(numeroChassi);
+    }
+    catch(const exception& e)
+    {
+        delete veiculo;
+        cerr << e.what() << '\n';
+        return false;
+    }
+    
+    this->veiculosAtivos->push_back(veiculo);
+    return true;
 }
 
 int GerenciadorVeiculos::removerVeiculo(Veiculo *veiculo)
 {
     bool veiculoPresente = false;
     for (Veiculo *v : *this->veiculosAtivos)
-        if (veiculo->GetNumeroChassi() == veiculo->GetNumeroChassi())
+        if (veiculo->getNumeroChassi() == veiculo->getNumeroChassi())
         {
             veiculoPresente = true;
             break;
@@ -49,15 +138,15 @@ int GerenciadorVeiculos::removerVeiculo(Veiculo *veiculo)
 Veiculo *GerenciadorVeiculos::buscaVeiculo(string numeroChassi)
 {
     for (Veiculo *v : *this->veiculosAtivos)
-        if (v->GetNumeroChassi() == numeroChassi)
+        if (v->getNumeroChassi() == numeroChassi)
             return v;
     return NULL;
 }
 
-Veiculo *GerenciadorVeiculos::buscaVeiculoByLocalizacao(string localizacao)
+Veiculo *GerenciadorVeiculos::buscaVeiculoByLocalizacao(Coordenada *localizacao)
 {
     for (Veiculo *v : *this->veiculosAtivos)
-        if (v->GetLocalizacao() == localizacao)
+        if (localizacao == v->getLocalizacao())
             return v;
     return NULL;
 }

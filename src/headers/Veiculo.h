@@ -1,4 +1,5 @@
 #include <iostream>
+#include "./Coordenada.h"
 
 #ifndef _VEICULO_H_
 #define _VEICULO_H_
@@ -13,7 +14,7 @@ private:
     bool isAtivo;
     string numeroChassi;
     string modelo;
-    string localizacao;
+    Coordenada *localizacao;
     
 protected:
     string tipo;
@@ -23,31 +24,35 @@ public:
     
     ~Veiculo();
 
-    string GetTipo();
+    string getTipo();
 
-    float GetCapacidadeDeCarga();
+    float getCapacidadeDeCarga();
 
-    int SetCapacidadeDeCarga(float capacidadeDeCarga);
+    void setCapacidadeDeCarga(float capacidadeDeCarga);
 
-    int GetAnoFabricaocao();
+    int getAnoFabricaocao();
 
-    int SetAnoFabricaocao(int anoFabricaocao);
+    void setAnoFabricaocao(int anoFabricaocao);
 
-    string GetNumeroChassi();
+    string getNumeroChassi();
 
-    int SetNumeroChassi(string numeroChassi);
+    void setNumeroChassi(string numeroChassi);
 
-    string GetModelo();
+    string getModelo();
 
-    int SetModelo(string modelo);
+    void setModelo(string modelo);
 
-    string GetLocalizacao();
+    Coordenada *getLocalizacao();
 
-    int SetLocalizacao(string localizacao);
+    void setLocalizacao(Coordenada *localizacao);
 
-    bool GetIsAtivo();
+    bool getIsAtivo();
     
-    void SetIsAtivo(bool IsAtivo);
+    void setIsAtivo(bool IsAtivo);
+
+    friend iostream &operator<<(iostream &os, Veiculo &veiculo);
+    
+    bool operator==(Veiculo &veiculo);
 };
 
 #endif

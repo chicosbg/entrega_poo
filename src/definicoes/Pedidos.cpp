@@ -1,77 +1,112 @@
 #include <iostream>
-#include "../headers/Pedidos.h"
+#include "../headers/Pedido.h"
 #include "../headers/Cliente.h"
 #include "../headers/Veiculo.h"
 
 using namespace std;
 
-Pedidos::Pedidos()
+Pedido::Pedido()
 {
     this->veiculoDeTransporte = new Veiculo();
     this->solicitante = new Cliente();
+    this->pesoDaCarga = 0.0;
 }
 
-Pedidos::~Pedidos() {
+Pedido::~Pedido()
+{
     delete this->veiculoDeTransporte;
     delete this->solicitante;
+    delete this->localDeColeta;
+    delete this->localDeEntrega;
 }
 
-Veiculo *Pedidos::GetVeiculoDeTransporte()
+int Pedido::getNumeroPedido() {
+    return this->numeroPedido;
+}
+
+void Pedido::setNumeroPedido(int numeroPedido) {
+    if(numeroPedido <= 0) throw invalid_argument("Numero do pedido invalido.");
+    this->numeroPedido = numeroPedido;
+}
+
+Veiculo *Pedido::getVeiculoDeTransporte()
 {
     return this->veiculoDeTransporte;
 }
 
-int Pedidos::SetVeiculoDeTransporte(Veiculo *veiculoDeTransporte)
+void Pedido::setVeiculoDeTransporte(Veiculo *veiculoDeTransporte)
 {
-    if(!veiculoDeTransporte->GetIsAtivo())
-        return 0;
+    if (!veiculoDeTransporte->getIsAtivo())
+        throw invalid_argument("Nao sao permitido veiculos nao ativos.");
     this->veiculoDeTransporte = veiculoDeTransporte;
-    return 1;
 }
 
-Cliente *Pedidos::GetSolicitante()
+Cliente *Pedido::getSolicitante()
 {
     return this->solicitante;
 }
 
-int Pedidos::SetSolicitante(Cliente *solicitante)
+void Pedido::setSolicitante(Cliente *solicitante)
 {
-    if(solicitante == NULL) return 0;
+    if (solicitante == NULL)
+        throw invalid_argument("Eh obrigatorio passar um solicitante.");
     this->solicitante = solicitante;
-    return 1;
 }
 
-string Pedidos::GetLocalDeColeta()
+Coordenada *Pedido::getLocalDeColeta()
 {
     return this->localDeColeta;
 }
 
-int Pedidos::SetLocalDeColeta(string localDeColeta)
-{   if(localDeColeta == "") return 0;
+void Pedido::setLocalDeColeta(Coordenada *localDeColeta)
+{
+    if (localDeColeta == NULL)
+        throw invalid_argument("Eh obrigatorio informar um local de coleta.");
     this->localDeColeta = localDeColeta;
-    return 1;
 }
 
-string Pedidos::GetLocalDeEntrega()
+Coordenada *Pedido::getLocalDeEntrega()
 {
     return this->localDeEntrega;
 }
 
-int Pedidos::SetLocalDeEntrega(string localDeEntrega)
+void Pedido::setLocalDeEntrega(Coordenada *localDeEntrega)
 {
-    if(localDeEntrega == "") return 0;
+    if (localDeEntrega == NULL)
+        throw invalid_argument("Eh obrigatorio informar um local de entrega.");
     this->localDeEntrega = localDeEntrega;
-    return 1;
 }
 
-float Pedidos::GetPesoDaCarga()
+float Pedido::getPesoDaCarga()
 {
     return this->pesoDaCarga;
 }
 
-int Pedidos::SetPesoDaCarga(float pesoDaCarga)
+void Pedido::setPesoDaCarga(float pesoDaCarga)
 {
-    if(pesoDaCarga <= 0) return 0;
+    if (pesoDaCarga <= 0)
+        throw invalid_argument("peso de carga invalido.");
     this->pesoDaCarga = pesoDaCarga;
-    return 1;
+}
+
+iostream &operator<<(iostream &os, Pedido &pedidos)
+{
+    os << "SOLICITANTE:"
+       << endl
+       << pedidos.getSolicitante()
+       << "LOCAL DE COLETA:"
+       << pedidos.getLocalDeColeta()
+       << pedidos.getLocalDeEntrega()
+       << endl
+       << "VEICULO DE TRANSPORTE:" 
+       << endl
+       << pedidos.getVeiculoDeTransporte()
+       << "PESO CARGA: "
+       << pedidos.getPesoDaCarga()
+       << endl;
+    return os;
+}
+
+bool Pedido::operator==(Pedido &pedido) {
+    return pedido.getNumeroPedido() == this->numeroPedido;
 }

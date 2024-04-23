@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../headers/Veiculo.h"
+#include "../headers/Coordenada.h"
 
 using namespace std;
 
@@ -7,75 +8,104 @@ Veiculo::Veiculo() { }
 
 Veiculo::~Veiculo() { }
 
-string Veiculo::GetTipo()
+string Veiculo::getTipo()
 {
     return this->tipo;
 }
 
-float Veiculo::GetCapacidadeDeCarga()
+float Veiculo::getCapacidadeDeCarga()
 {
     return this->capacidadeDeCarga;
 }
 
-int Veiculo::SetCapacidadeDeCarga(float capacidadeDeCarga)
+void Veiculo::setCapacidadeDeCarga(float capacidadeDeCarga)
 {
+    if(capacidadeDeCarga < 0) throw invalid_argument("Nao eh permitido capacidade de carga negativa.");
     this->capacidadeDeCarga = capacidadeDeCarga;
 }
 
-int Veiculo::GetAnoFabricaocao()
+int Veiculo::getAnoFabricaocao()
 {
     return this->anoFabricaocao;
 }
 
-int Veiculo::SetAnoFabricaocao(int anoFabricaocao)
+void Veiculo::setAnoFabricaocao(int anoFabricaocao)
 {
-    if(anoFabricaocao < 0) return 0;
+    if(anoFabricaocao < 0) throw invalid_argument("Nao eh permitido ano de fabricacao negativo.");
     this->anoFabricaocao = anoFabricaocao;
-    return 1;
 }
 
-string Veiculo::GetNumeroChassi()
+string Veiculo::getNumeroChassi()
 {
     return this->numeroChassi;
 }
 
-int Veiculo::SetNumeroChassi(string numeroChassi)
+void Veiculo::setNumeroChassi(string numeroChassi)
 {
     if(numeroChassi.length() == 17) {
         this->numeroChassi = numeroChassi;
-        return 1;
     }
-    return 0;
+    throw invalid_argument("Numero invalido de caracteres");
 }
 
-string Veiculo::GetModelo()
+string Veiculo::getModelo()
 {
     return this->modelo;
 }
 
-int Veiculo::SetModelo(string modelo)
+void Veiculo::setModelo(string modelo)
 {
-    if(modelo == "") return 0;
+    if(modelo.empty()) throw invalid_argument("Nao eh permitido o modelo vazio.");
     this->modelo = modelo;
-    return 1;
 }
 
-string Veiculo::GetLocalizacao()
+Coordenada *Veiculo::getLocalizacao()
 {
     return this->localizacao;
 }
 
-int Veiculo::SetLocalizacao(string localizacao)
+void Veiculo::setLocalizacao(Coordenada *localizacao)
 {
-    if(localizacao == "") return 0;
+    if(localizacao == NULL) throw invalid_argument("Nao eh permitido a localizacao vazia.");
     this->localizacao = localizacao;
-    return 1;
+
 }
 
-bool Veiculo::GetIsAtivo() {
+bool Veiculo::getIsAtivo() {
     return this->isAtivo;
 }
     
-void Veiculo::SetIsAtivo(bool isAtivo = true) {
+void Veiculo::setIsAtivo(bool isAtivo = true) {
     this->isAtivo = isAtivo;
+}
+
+iostream &operator<<(iostream &os, Veiculo &veiculo) {
+    os << veiculo.getTipo() << ":"
+        << endl
+        << "NUMERO DO CHASSI: "  
+        << veiculo.getNumeroChassi()
+        << endl
+        << "MODELO: "  
+        << veiculo.getModelo()
+        << endl
+        << "CAPACIDADE DE CARGA: "  
+        << veiculo.getCapacidadeDeCarga()
+        << endl
+        << "ANO DE FABRICACAO: "
+        <<  veiculo.getAnoFabricaocao()
+        << endl
+        << "ESTA ATIVO: "
+        << veiculo.getIsAtivo()
+        << endl
+        << "MODELO: "  
+        << veiculo.getModelo()
+        << endl
+        << "LOCALIZACAO:"
+        << veiculo.getLocalizacao();
+
+    return os;
+}
+
+bool Veiculo::operator==(Veiculo &veiculo) {
+    return veiculo.getNumeroChassi() == this->numeroChassi;
 }

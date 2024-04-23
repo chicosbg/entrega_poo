@@ -16,23 +16,29 @@ private:
 public:
     Cliente();
 
+    Cliente(string nome, string cpf, string email, string endereco);
+
     ~Cliente();
 
-    string GetNome();
+    string getNome();
 
-    int SetNome(string nome);
+    void setNome(string nome);
 
-    string GetCpf();
+    string getCpf();
 
-    int SetCpf(string cpf);
+    void setCpf(string cpf);
 
-    string GetEmail();
+    string getEmail();
 
-    int SetEmail(string email);
+    void setEmail(string email);
 
-    string GetEndereco();
+    string getEndereco();
 
-    int SetEndereco(string endereco);
+    void setEndereco(string endereco);
+
+    friend iostream &operator<<(iostream os, Cliente &cliente);
+
+    bool operator==(Cliente &cliente);
 };
 
 #endif

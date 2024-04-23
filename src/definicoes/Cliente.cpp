@@ -6,54 +6,77 @@ using namespace std;
 
 Cliente::Cliente() { }
 
-Cliente::~Cliente() { }
+Cliente::Cliente(string nome, string cpf, string email, string endereco) {
+    this->setNome(nome);
+    this->setCpf(cpf);
+    this->setEmail(email);
+    this->setEndereco(endereco);
+}
 
-string Cliente::GetNome()
+Cliente::~Cliente() {}
+
+string Cliente::getNome()
 {
     return this->nome;
 }
 
-int Cliente::SetNome(string nome)
+void Cliente::setNome(string nome)
 {
-    if(nome == "") return 0;
+    if(nome.empty()) throw invalid_argument("Nao eh permitido nome vazio.");
     this->nome = nome;
-    return 1;
 }
 
-string Cliente::GetCpf()
+string Cliente::getCpf()
 {
     return this->cpf;
 }
 
-int Cliente::SetCpf(string cpf)
+void Cliente::setCpf(string cpf)
 {
     std::regex cpfRegex("^\\d{3}(\\.?\\d{3}){2}-?\\d{2}$");
-    if(!std::regex_match(cpf, cpfRegex)) return 0;   
+    if(!std::regex_match(cpf, cpfRegex)) throw invalid_argument("Padrao de cpf incompativel.");   
     this->cpf = cpf;
-    return 1;
 }
 
-string Cliente::GetEmail() 
+string Cliente::getEmail() 
 {
     return this->email;
 }
 
-int Cliente::SetEmail(string email)
+void Cliente::setEmail(string email)
 {
-    if(this->email == "") return 0;
+    if(this->email.empty()) throw invalid_argument("Nao eh permitido email vazio.");
+    if(!this->email.find('@')) throw invalid_argument("Email invalido"); 
     this->email = email;
-    return 1;
 }
 
-string Cliente::GetEndereco() 
+string Cliente::getEndereco() 
 {
     return this->endereco;
 }
 
-int Cliente::SetEndereco(string endereco)
+void Cliente::setEndereco(string endereco)
 {
-    if(this->email == "") return 0;
+    if(this->endereco.empty()) throw invalid_argument("Nao eh permitido endereco vazio.");
     this->endereco = endereco;
-    return 1;
+}
+
+iostream &operator<<(iostream &os, Cliente &cliente) {
+    os << "Nome: "
+    << cliente.getNome()
+    << endl
+    << "CPF: "
+    << cliente.getCpf()
+    << endl
+    << "EMAIL: "
+    << cliente.getEmail()
+    << endl
+    << "ENDERECO: "
+    << cliente.getEndereco()
+    << endl;
+    return os;
+}
     
+bool Cliente::operator==(Cliente &cliente) {
+    return cliente.getCpf() == this->cpf;
 }
