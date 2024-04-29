@@ -13,7 +13,8 @@ GerenciadorVeiculos::GerenciadorVeiculos()
 GerenciadorVeiculos::~GerenciadorVeiculos()
 {
     for(Veiculo *veiculo: *this->veiculosAtivos) {
-        delete veiculo;
+       // delete veiculo;
+       //PRECISA CONCERTO
     }
     delete this->veiculosAtivos;
 };
@@ -154,4 +155,11 @@ Veiculo *GerenciadorVeiculos::buscaVeiculoByLocalizacao(Coordenada *localizacao)
 list<Veiculo *> *GerenciadorVeiculos::obterVeiculosAtivos()
 {
     return this->veiculosAtivos;
+}
+
+ostream &operator<<(ostream &os, GerenciadorVeiculos &gerenciadorVeiculos)
+{
+    for (Veiculo *i : *gerenciadorVeiculos.veiculosAtivos)
+        os << *i << endl;
+    return os;
 }

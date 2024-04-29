@@ -12,6 +12,15 @@ Pedido::Pedido()
     this->pesoDaCarga = 0.0;
 }
 
+Pedido::Pedido(Cliente *solicitante, Coordenada *localDeColeta, Coordenada *localDeEntrega, float pesoDaCarga)
+{
+    this -> solicitante = solicitante;
+    this -> localDeColeta = localDeColeta;
+    this -> localDeEntrega = localDeEntrega;
+    this -> pesoDaCarga = pesoDaCarga;
+}
+
+
 Pedido::~Pedido()
 {
     delete this->veiculoDeTransporte;

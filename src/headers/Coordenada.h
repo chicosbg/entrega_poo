@@ -12,6 +12,7 @@ private:
     double longitude;
 public:
     Coordenada();
+    Coordenada(double latitude, double longitude);
     ~Coordenada();
     double getLatitude();
     void setLatitude(double latitude);
@@ -19,6 +20,6 @@ public:
     void setLogitude(double longitude);
     double calculaDistancia(Coordenada *coordenadaB);
     bool operator==(Coordenada &coordenada);
-    friend iostream &operator<<(iostream &os, Coordenada &coordenada);
+    friend ostream &operator<<(ostream &os, Coordenada &coordenada);
 };
 #endif

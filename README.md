@@ -53,3 +53,12 @@ O tratamento de exceções ocorre dentro da classe `GerenciadorVeiculo`, porque 
 ## No Futuro
 
 + Quando o a atividade estiver com uma main minimamente aceitavel, vou adicionar releases com versões do programa.
+
+
+# Tarefa 4
+- implementada a classe DadosSistema na qual os dados do arquivo csv são lidos para realizar as entregas.
+- a classe le o arquivo e entao transforma a string em coordenadas latitude longitude, usando GeoShell, um bash script criado pelo colega Diogo que busca as coordenadas no google maps.
+- entao usando o gerenciador de pedidos é buscado um veiculo compativel com o peso da carga para transportalo, o veiculo achado entrega o pedido e é liberado, tendo as suas coordenadas modificadas para as coordenadas do local de entrega.
+- Então é printado no terminal "Pedido entregado com sucesso para nome do cliente\n Nas coordenadas: latitude longitude;
+<img src="img.jpg">
+- Try catchs foram usados no código para evitar quaisquer erro de parar completamente o programa, então se algum erro acontece apenas é printado no terminal que o erro ocorreu na entrega e o programa segue normalmente, como endereços invalidos e etc.

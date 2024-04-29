@@ -16,6 +16,8 @@ class GerenciadorPedido {
 
         void defineVeiculosTransport(list<Pedido*> *listaPedidos);
         bool defineVeiculosTransport(Pedido *pedido);
+
+        void realizarEntrega();
 };
 
 #endif
