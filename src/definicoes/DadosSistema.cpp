@@ -38,7 +38,6 @@ void DadosSistema::setGerenciadorVeiculos(GerenciadorVeiculos *gerenciadorVeicul
 
 void DadosSistema::lerCSV()
 {
-    FILE  *relatorio = fopen("relatorio_entregas.txt", "w");
     ifstream file("dados_entregas.csv");
     string s;
     if (!file.is_open()) 
@@ -116,7 +115,7 @@ Coordenada *DadosSistema::stringParaCoordenada(string endereco)
     {
         if(endereco[i] == '\n')
         {
-            endereco.erase(i, 1);
+            endereco[i] = ' ';
         }
     }
     std::string bash = "bash ./get_coordinates.sh " + endereco;
@@ -124,7 +123,8 @@ Coordenada *DadosSistema::stringParaCoordenada(string endereco)
     if(resultado == 0)
     {
         try {
-            FILE *coordenadas = fopen(("./GeoShell/.coordinates/" +  endereco.substr(0, endereco.find(' '))  + ".txt").c_str(), "r");
+            std::string filename = "GeoShell/.coordinates/" +  endereco.substr(0, endereco.find(' '));
+            FILE *coordenadas = fopen(filename.c_str(), "r");
             if(coordenadas == NULL)
             {
                 std::cout << "Erro ao buscar coordenadas do endereço" << std::endl;
