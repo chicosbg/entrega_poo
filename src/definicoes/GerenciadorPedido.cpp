@@ -1,3 +1,5 @@
+#ifndef GERENCIADORPEDIDO_CPP
+#define GERENCIADORPEDIDO_CPP
 #include <iostream>
 #include <set>
 #include "../headers/GerenciadorPedido.h"
@@ -58,3 +60,4 @@ void GerenciadorPedido::realizarEntrega()
     }
 }
 
+#endif

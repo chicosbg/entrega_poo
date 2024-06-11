@@ -1,3 +1,5 @@
+#ifndef GERENCIADORVEICULOS_CPP
+#define GERENCIADORVEICULOS_CPP
 #include <iostream>
 #include <list>
 #include "../headers/GerenciadorVeiculos.h"
@@ -163,3 +165,4 @@ ostream &operator<<(ostream &os, GerenciadorVeiculos &gerenciadorVeiculos)
         os << *i << endl;
     return os;
 }
+#endif

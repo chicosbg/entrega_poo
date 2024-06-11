@@ -1,3 +1,5 @@
+#ifndef PEDIDO_CPP
+#define PEDIDO_CPP
 #include <iostream>
 #include "../headers/Pedido.h"
 #include "../headers/Cliente.h"
@@ -119,3 +121,4 @@ iostream &operator<<(iostream &os, Pedido &pedidos)
 bool Pedido::operator==(Pedido &pedido) {
     return pedido.getNumeroPedido() == this->numeroPedido;
 }
+#endif

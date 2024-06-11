@@ -1,3 +1,5 @@
+#ifndef VEICULO_CPP
+#define VEICULO_CPP
 #include <iostream>
 #include "../headers/Veiculo.h"
 #include "../headers/Coordenada.h"
@@ -103,3 +105,4 @@ ostream &operator<<(ostream &os, Veiculo &veiculo) {
 bool Veiculo::operator==(Veiculo &veiculo) {
     return veiculo.getNumeroChassi() == this->numeroChassi;
 }
+#endif

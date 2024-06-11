@@ -1,11 +1,13 @@
+#ifndef DADOS_SISTEMA_CPP
+#define DADOS_SISTEMA_CPP
 #include <iostream>
 #include "../headers/dadosSistema.h"
-#include "Cliente.cpp"
-#include "Veiculo.cpp"
-#include "Coordenada.cpp"
-#include "GerenciadorVeiculos.cpp"
-#include "GerenciadorPedido.cpp"
-#include "Pedidos.cpp"
+#include "../headers/Cliente.h"
+#include "../headers/Veiculo.h"
+#include "../headers/Coordenada.h"
+#include "../headers/GerenciadorVeiculos.h"
+#include "../headers/GerenciadorPedido.h"
+#include "../headers/Pedido.h"
 #include <string.h>
 #include <random>
 #include <fstream>
@@ -147,3 +149,4 @@ Coordenada *DadosSistema::stringParaCoordenada(string endereco)
     }
     return nullptr;
 }
+#endif

@@ -1,3 +1,5 @@
+#ifndef CLIENTE_CPP
+#define CLIENTE_CPP
 #include <iostream>
 #include <regex>
 #include "../headers/Cliente.h"
@@ -73,3 +75,4 @@ ostream &operator<<(ostream &os, Cliente &cliente) {
 bool Cliente::operator==(Cliente &cliente) {
     return cliente.getCpf() == this->cpf;
 }
+#endif

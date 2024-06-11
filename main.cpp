@@ -1,6 +1,15 @@
 #include <iostream>
 #include <list>
-#include "./src/definicoes/DadosSistema.cpp"
+#include "src/headers/dadosSistema.h"
+#include "src/headers/GerenciadorVeiculos.h"
+#include "src/headers/Veiculo.h"
+#include "src/headers/Coordenada.h"
+#include "src/headers/Cliente.h"
+#include "src/headers/Caminhao.h"
+#include "src/headers/Carro.h"
+#include "src/headers/Caminhonete.h"
+#include "src/headers/GerenciadorPedido.h"
+#include "src/headers/Pedido.h"
 using namespace std;
 
 //gerar veiculos aleatorios pela quantidade

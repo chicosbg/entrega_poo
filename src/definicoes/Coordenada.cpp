@@ -1,3 +1,5 @@
+#ifndef COORDENADA_CPP
+#define COORDENADA_CPP
 #include <iostream>
 #include "../headers/Coordenada.h"
 #include <cmath>
@@ -41,3 +43,4 @@ ostream &operator<<(ostream &os, Coordenada &coordenada) {
          <<"Longitude: " << coordenada.getLongitude() << "\n";
     return os;
 }
+#endif
