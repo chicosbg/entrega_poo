@@ -1,3 +1,5 @@
+#ifndef GERENCIADORVEICULOS_CPP
+#define GERENCIADORVEICULOS_CPP
 #include <iostream>
 #include <list>
 #include "../headers/GerenciadorVeiculos.h"
@@ -13,7 +15,8 @@ GerenciadorVeiculos::GerenciadorVeiculos()
 GerenciadorVeiculos::~GerenciadorVeiculos()
 {
     for(Veiculo *veiculo: *this->veiculosAtivos) {
-        delete veiculo;
+       // delete veiculo;
+       //PRECISA CONCERTO
     }
     delete this->veiculosAtivos;
 };
@@ -155,3 +158,11 @@ list<Veiculo *> *GerenciadorVeiculos::obterVeiculosAtivos()
 {
     return this->veiculosAtivos;
 }
+
+ostream &operator<<(ostream &os, GerenciadorVeiculos &gerenciadorVeiculos)
+{
+    for (Veiculo *i : *gerenciadorVeiculos.veiculosAtivos)
+        os << *i << endl;
+    return os;
+}
+#endif

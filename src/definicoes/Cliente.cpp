@@ -1,3 +1,5 @@
+#ifndef CLIENTE_CPP
+#define CLIENTE_CPP
 #include <iostream>
 #include <regex>
 #include "../headers/Cliente.h"
@@ -45,8 +47,8 @@ string Cliente::getEmail()
 
 void Cliente::setEmail(string email)
 {
-    if(this->email.empty()) throw invalid_argument("Nao eh permitido email vazio.");
-    if(!this->email.find('@')) throw invalid_argument("Email invalido"); 
+    if(email.empty()) throw invalid_argument("Nao eh permitido email vazio.");
+    if(!email.find('@')) throw invalid_argument("Email invalido"); 
     this->email = email;
 }
 
@@ -57,26 +59,20 @@ string Cliente::getEndereco()
 
 void Cliente::setEndereco(string endereco)
 {
-    if(this->endereco.empty()) throw invalid_argument("Nao eh permitido endereco vazio.");
+    if(endereco.empty()) throw invalid_argument("Nao eh permitido endereco vazio.");
     this->endereco = endereco;
 }
 
-iostream &operator<<(iostream &os, Cliente &cliente) {
-    os << "Nome: "
-    << cliente.getNome()
-    << endl
-    << "CPF: "
-    << cliente.getCpf()
-    << endl
-    << "EMAIL: "
-    << cliente.getEmail()
-    << endl
-    << "ENDERECO: "
-    << cliente.getEndereco()
-    << endl;
+ostream &operator<<(ostream &os, Cliente &cliente) {
+    os << "Nome: " << cliente.getNome() << "\n"
+         << "CPF: " << cliente.getCpf() << "\n"
+         << "Email: " << cliente.getEmail() << "\n"
+         << "Endereco: " << cliente.getEndereco() << "\n";
+
     return os;
 }
     
 bool Cliente::operator==(Cliente &cliente) {
     return cliente.getCpf() == this->cpf;
 }
+#endif

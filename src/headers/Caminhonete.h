@@ -1,3 +1,5 @@
+#ifndef CAMINHONETE_H
+#define CAMINHONETE_H
 #include <iostream>
 #include "./Veiculo.h"
 
@@ -7,3 +9,4 @@ public:
     Caminhonete();
     ~Caminhonete();
 };
+#endif

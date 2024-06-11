@@ -1,3 +1,5 @@
+#ifndef COORDENADA_CPP
+#define COORDENADA_CPP
 #include <iostream>
 #include "../headers/Coordenada.h"
 #include <cmath>
@@ -6,6 +8,12 @@ Coordenada::Coordenada() {
     this->latitude = 0.0;
     this->longitude = 0.0;
 }
+
+Coordenada::Coordenada(double latitude, double longitude) {
+    this->latitude = latitude;
+    this->longitude = longitude;
+}
+
 Coordenada::~Coordenada() {}
 double Coordenada::getLatitude() {
     return this->latitude;
@@ -30,12 +38,9 @@ bool Coordenada::operator==(Coordenada &coordenada) {
     return coordenada.getLatitude() == this->latitude && coordenada.getLongitude() == longitude;
 }
 
-iostream &operator<<(iostream &os, Coordenada &coordenada) {
-    os <<"latitude: " 
-        <<  coordenada.getLatitude()
-        << endl
-        << "Longitude: "
-        << coordenada.getLongitude()
-        << endl;
+ostream &operator<<(ostream &os, Coordenada &coordenada) {
+    os <<"Latitude: " << coordenada.getLatitude() << "\n"
+         <<"Longitude: " << coordenada.getLongitude() << "\n";
     return os;
 }
+#endif

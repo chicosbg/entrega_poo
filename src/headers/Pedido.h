@@ -19,7 +19,7 @@ private:
 
 public:
     Pedido();
-
+    Pedido(Cliente *solicitante, Coordenada *localDeColeta, Coordenada *localDeEntrega, float pesoDaCarga);
     ~Pedido();
     
     int getNumeroPedido();

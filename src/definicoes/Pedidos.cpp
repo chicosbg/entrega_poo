@@ -1,3 +1,5 @@
+#ifndef PEDIDO_CPP
+#define PEDIDO_CPP
 #include <iostream>
 #include "../headers/Pedido.h"
 #include "../headers/Cliente.h"
@@ -11,6 +13,15 @@ Pedido::Pedido()
     this->solicitante = new Cliente();
     this->pesoDaCarga = 0.0;
 }
+
+Pedido::Pedido(Cliente *solicitante, Coordenada *localDeColeta, Coordenada *localDeEntrega, float pesoDaCarga)
+{
+    this -> solicitante = solicitante;
+    this -> localDeColeta = localDeColeta;
+    this -> localDeEntrega = localDeEntrega;
+    this -> pesoDaCarga = pesoDaCarga;
+}
+
 
 Pedido::~Pedido()
 {
@@ -110,3 +121,4 @@ iostream &operator<<(iostream &os, Pedido &pedidos)
 bool Pedido::operator==(Pedido &pedido) {
     return pedido.getNumeroPedido() == this->numeroPedido;
 }
+#endif

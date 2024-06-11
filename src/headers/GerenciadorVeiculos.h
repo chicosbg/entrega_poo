@@ -34,5 +34,7 @@ public:
     Veiculo *buscaVeiculoByLocalizacao(Coordenada *localizacao);
 
     list<Veiculo *> *obterVeiculosAtivos();
+
+    friend ostream &operator<<(ostream &os, GerenciadorVeiculos &gerenciadorVeiculos);
 };
 #endif

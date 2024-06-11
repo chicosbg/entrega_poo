@@ -1,3 +1,5 @@
+#ifndef VEICULO_CPP
+#define VEICULO_CPP
 #include <iostream>
 #include "../headers/Veiculo.h"
 #include "../headers/Coordenada.h"
@@ -5,6 +7,16 @@
 using namespace std;
 
 Veiculo::Veiculo() { }
+
+Veiculo::Veiculo(int anoFabricaocao, float capacidadeDeCarga, string numeroChassi, string modelo, Coordenada *localizacao, bool isAtivo)
+{
+    this -> anoFabricaocao = anoFabricaocao;
+    this -> capacidadeDeCarga = capacidadeDeCarga;
+    this -> numeroChassi = numeroChassi;
+    this -> modelo = modelo;
+    this -> localizacao = localizacao;
+    this -> isAtivo = isAtivo;
+}
 
 Veiculo::~Veiculo() { }
 
@@ -79,33 +91,18 @@ void Veiculo::setIsAtivo(bool isAtivo = true) {
     this->isAtivo = isAtivo;
 }
 
-iostream &operator<<(iostream &os, Veiculo &veiculo) {
-    os << veiculo.getTipo() << ":"
-        << endl
-        << "NUMERO DO CHASSI: "  
-        << veiculo.getNumeroChassi()
-        << endl
-        << "MODELO: "  
-        << veiculo.getModelo()
-        << endl
-        << "CAPACIDADE DE CARGA: "  
-        << veiculo.getCapacidadeDeCarga()
-        << endl
-        << "ANO DE FABRICACAO: "
-        <<  veiculo.getAnoFabricaocao()
-        << endl
-        << "ESTA ATIVO: "
-        << veiculo.getIsAtivo()
-        << endl
-        << "MODELO: "  
-        << veiculo.getModelo()
-        << endl
-        << "LOCALIZACAO:"
-        << veiculo.getLocalizacao();
-
+ostream &operator<<(ostream &os, Veiculo &veiculo) {
+    os << "Tipo: " << veiculo.getTipo() << "\n"
+         << "Modelo: " << veiculo.getModelo() << "\n"
+         << "Ano de fabricacao: " << veiculo.getAnoFabricaocao() << "\n"
+         << "Capacidade de carga: " << veiculo.getCapacidadeDeCarga() << "\n"
+         << "Numero do chassi: " << veiculo.getNumeroChassi() << "\n"
+         << "Localizacao: " << *veiculo.getLocalizacao()
+         << "Ativo: " << veiculo.getIsAtivo() << "\n";
     return os;
 }
 
 bool Veiculo::operator==(Veiculo &veiculo) {
     return veiculo.getNumeroChassi() == this->numeroChassi;
 }
+#endif

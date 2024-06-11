@@ -21,6 +21,8 @@ protected:
 
 public:
     Veiculo();
+
+    Veiculo(int anoFabricaocao, float capacidadeDeCarga, string numeroChassi, string modelo, Coordenada *localizacao, bool isAtivo);
     
     ~Veiculo();
 
@@ -50,7 +52,7 @@ public:
     
     void setIsAtivo(bool IsAtivo);
 
-    friend iostream &operator<<(iostream &os, Veiculo &veiculo);
+    friend ostream &operator<<(ostream &os, Veiculo &veiculo);
     
     bool operator==(Veiculo &veiculo);
 };

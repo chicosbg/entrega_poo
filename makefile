@@ -1,4 +1,4 @@
 compila:
-	g++ -std=c++20 main.cpp ./src/definicoes/*.cpp ./src/headers/*.h -o ./out/main
+	g++  main.cpp ./src/definicoes/*.cpp ./src/headers/*.h -o ./main
 createDir:
 	mkdir out
